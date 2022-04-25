@@ -11,9 +11,9 @@ public class Profesor {
 	    public Profesor(){
 
 	    }
+	    
 		
 		public Profesor(String nombre, int edad, char sexo){
-
 			String apellido = "", categoria = "", RUT;
 			int experiencia = 0;
 		}
@@ -23,11 +23,13 @@ public class Profesor {
 
 		}
 
+		
+		
 		public void calcularCategoria(int experiencia) {
 			this.experiencia = experiencia;
-			if(experiencia < 2) {
+			if(experiencia <= 2) {
 				categoria = "ASISTENTE";
-			} else if(experiencia >= 2 && experiencia < 5) {
+			} else if(experiencia > 2 && experiencia < 5) {
 				categoria = "AGREGADO";
 			} else if(experiencia >= 5) {
 				categoria = "TITULAR";
@@ -36,16 +38,14 @@ public class Profesor {
 		}
 		
 		
-		
 		public boolean esTitular() {
 			boolean verdadero = false;
-			if (categoria == "titular") { 
+			if (categoria == "TITULAR") { 
 				verdadero = true;
 				
 			}
 			System.out.println(verdadero);
-			return verdadero;
-			
+			return verdadero;	
 		}
 		
 		
@@ -59,7 +59,7 @@ public class Profesor {
 		}
 		
 		
-		public void generarRut() {
+		protected void generarRut() {
 
 	        final int divisor = 11;
 
@@ -70,27 +70,60 @@ public class Profesor {
 	        int res = numRut - (numRut / divisor * divisor);
 
 
-	        //letra
+	        //dígito
 
-	        char letraRut = generaLetraRut(res);
+	        char digitoRut = generaDigitoRut(res);
 
 
-	        RUT = Integer.toString(numRut) + "-" + letraRut;
+	        RUT = Integer.toString(numRut) + "-" + digitoRut;
 	        
 	        System.out.println("El rut del Profesor es: " + RUT);
 
 	    }
 
 
-	    public char generaLetraRut(int res) {
+	    protected char generaDigitoRut(int res) {
 
-	        char letras[] = {'0', '1', '2', '3', '4', '5', '6',
+	        char digito[] = {'0', '1', '2', '3', '4', '5', '6',
 
 	            '7', '8', '9', 'K'};
 
-	        return letras[res];
+	        return digito[res];
 
 	    }
+	    
+	    
+	    public void setNombre(String nombre) {
+
+	        this.nombre = nombre;
+
+	    }
+	    
+	    public void setApellido(String apellido) {
+
+	        this.apellido = apellido;
+
+	    }
+	    
+	    public void setEdad(int edad) {
+
+	        this.edad = edad;
+
+	    }
+	    
+	    public void setExperiencia(int experiencia) {
+
+	        this.experiencia = experiencia;
+
+	    }
+	    
+	    public void setCategoria(String categoria) {
+
+	        this.categoria = categoria;
+
+	    }
+   
+	    
 	    	    		
 }
 

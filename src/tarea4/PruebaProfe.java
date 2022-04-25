@@ -3,19 +3,19 @@ package tarea4;
 public class PruebaProfe {
 
 	public static void main(String[] args) {
-		Profesor profe = new Profesor();
-		Profesor setExperiencia = new Profesor();
-		Profesor setSexo = new Profesor();
-		Profesor setRut = new Profesor();
+		Profesor Experiencia = new Profesor();
+		Profesor Sexo = new Profesor();
+		Profesor Rut = new Profesor();
+
+		Rut.generarRut();
+		Rut.generaDigitoRut(0);
 		
-		setRut.generarRut();
-		setRut.generaLetraRut(0);
+		Sexo.comprobarSexo('H');
 		
-		setSexo.comprobarSexo('H');
-		
-		setExperiencia.calcularCategoria(2);
-		setExperiencia.esTitular();
+		Experiencia.calcularCategoria(5);
+		Experiencia.esTitular();
 
 	}
 
 }
+
